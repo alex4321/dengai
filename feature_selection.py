@@ -57,12 +57,47 @@ def create_prophet(features):
 def fill_nan(df):
     return df.fillna(method='ffill')
 
+
+def ysqrt(df):
+    if 'y' in list(df.columns):
+        df['y'] = df['y'].apply(np.abs).apply(np.sqrt) * df['y'].apply(np.sign)
+    return df
+
+
+def ysqrt_rev(df):
+    if 'y' in list(df.columns):
+        df['y'] = (df['y'] ** 2) * df['y'].apply(np.sign)
+    return df
+
+
+def choose_features(df):
+    columns = ['ndvi_ne',
+               'ndvi_se',
+               'precipitation_amt_mm',
+               'reanalysis_air_temp_k',
+               'reanalysis_avg_temp_k',
+               'reanalysis_dew_point_temp_k',
+               'reanalysis_min_air_temp_k',
+               'reanalysis_precip_amt_kg_per_m2',
+               'reanalysis_relative_humidity_percent',
+               'reanalysis_sat_precip_amt_mm',
+               'station_avg_temp_c',
+               'station_diur_temp_rng_c',
+               'station_min_temp_c',
+               'station_precip_mm',
+               'ds',]
+    if 'y' in list(df.columns):
+        columns.append('y')
+    return df[columns]
+
 # endregion
 
 
 if __name__ == '__main__':
-    preprocessors = [fill_nan]
-    postprocessors = []
+    preprocessors = [fill_nan,
+                     choose_features,
+                     ysqrt]
+    postprocessors = [ysqrt_rev]
     max_depth = -1
     horizon = '{0} days'.format(2 * 365)
 
