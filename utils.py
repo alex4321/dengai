@@ -10,7 +10,7 @@ LOG_FILENAME = 'log-{0}'.format(START_TIME)
 def read_data(directory):
     train_features_path = os.path.join(directory, 'dengue_features_train.csv')
     train_labels_path = os.path.join(directory, 'dengue_labels_train.csv')
-    test_features_path = os.path.join(directory, 'dengue_features_train.csv')
+    test_features_path = os.path.join(directory, 'dengue_features_test.csv')
     submission_path = os.path.join(directory, 'submission_format.csv')
     train_features = pd.read_csv(train_features_path)
     train_features['week_start_date'] = pd.to_datetime(train_features['week_start_date'])

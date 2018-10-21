@@ -1,0 +1,46 @@
+[2018-10-21 21:18:42.107322216] Reading data
+[2018-10-21 21:18:42.134757519] Preprocessing
+[2018-10-21 21:18:42.164617062] Determine features
+[2018-10-21 21:18:42.166427851] Initial features: 
+ndvi_ne                                 float64
+ndvi_se                                 float64
+precipitation_amt_mm                    float64
+reanalysis_air_temp_k                   float64
+reanalysis_avg_temp_k                   float64
+reanalysis_dew_point_temp_k             float64
+reanalysis_min_air_temp_k               float64
+reanalysis_precip_amt_kg_per_m2         float64
+reanalysis_relative_humidity_percent    float64
+reanalysis_sat_precip_amt_mm            float64
+station_avg_temp_c                      float64
+station_diur_temp_rng_c                 float64
+station_min_temp_c                      float64
+station_precip_mm                       float64
+dtype: object
+[2018-10-21 21:18:42.166766644] Initializing
+[2018-10-21 21:19:09.603453875] Initial score: 21.556136104179338
+[2018-10-21 21:19:09.603808880] Iteration 1
+[2018-10-21 21:25:35.519588709] Best eliminated feature on stage 1 is station_min_temp_c with score 20.93848516712079
+[2018-10-21 21:25:35.520184993] Iteration 2
+[2018-10-21 21:31:30.460202694] Best eliminated feature on stage 2 is ndvi_se with score 20.789538752884802
+[2018-10-21 21:31:30.460575342] Iteration 3
+[2018-10-21 21:36:56.238568544] Best eliminated feature on stage 3 is station_precip_mm with score 20.73536399676641
+[2018-10-21 21:36:56.239024639] Iteration 4
+[2018-10-21 21:41:46.257387160] Best eliminated feature on stage 4 is precipitation_amt_mm with score 20.58110135638611
+[2018-10-21 21:41:46.257730006] Iteration 5
+[2018-10-21 21:46:06.192556858] Best eliminated feature on stage 5 is reanalysis_min_air_temp_k with score 20.579994067511624
+[2018-10-21 21:46:06.192869663] Iteration 6
+[2018-10-21 21:49:52.622188568] Best eliminated feature on stage 6 is reanalysis_sat_precip_amt_mm with score 20.324779541980867
+[2018-10-21 21:49:52.622544050] Iteration 7
+[2018-10-21 21:53:11.642431498] No improvement on stage 7, stopping
+[2018-10-21 21:53:11.643723726] Final features:
+ndvi_ne                                 float64
+reanalysis_air_temp_k                   float64
+reanalysis_avg_temp_k                   float64
+reanalysis_dew_point_temp_k             float64
+reanalysis_precip_amt_kg_per_m2         float64
+reanalysis_relative_humidity_percent    float64
+station_avg_temp_c                      float64
+station_diur_temp_rng_c                 float64
+dtype: object
+[2018-10-21 21:53:11.643921852] Final error: 20.324779541980867

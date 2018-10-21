@@ -20,8 +20,8 @@ def ysqrt(df):
 
 
 def ysqrt_rev(df):
-    if 'y' in list(df.columns):
-        df['y'] = ((df['y'] ** 2) * df['y'].apply(np.sign)).apply(lambda value: max(0, value))
+    if 'yhat' in list(df.columns):
+        df['yhat'] = ((df['yhat'] ** 2) * df['yhat'].apply(np.sign)).apply(lambda value: max(0, value))
     return df
 
 
@@ -40,7 +40,9 @@ def choose_features(df):
                'station_diur_temp_rng_c',
                'station_min_temp_c',
                'station_precip_mm',
-               'ds',]
+               'ds',
+               'city' # Special case to split final predictions
+               ]
     if 'y' in list(df.columns):
         columns.append('y')
     return df[columns]
