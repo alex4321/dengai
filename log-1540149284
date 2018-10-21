@@ -1,0 +1,58 @@
+[2018-10-21 19:14:44.411781311] Reading data
+[2018-10-21 19:14:44.437765837] Preprocessing
+[2018-10-21 19:14:44.441599369] Determine features
+[2018-10-21 19:14:44.443177223] Initial features: 
+ndvi_ne                                  float64
+ndvi_nw                                  float64
+ndvi_se                                  float64
+ndvi_sw                                  float64
+precipitation_amt_mm                     float64
+reanalysis_air_temp_k                    float64
+reanalysis_avg_temp_k                    float64
+reanalysis_dew_point_temp_k              float64
+reanalysis_max_air_temp_k                float64
+reanalysis_min_air_temp_k                float64
+reanalysis_precip_amt_kg_per_m2          float64
+reanalysis_relative_humidity_percent     float64
+reanalysis_sat_precip_amt_mm             float64
+reanalysis_specific_humidity_g_per_kg    float64
+reanalysis_tdtr_k                        float64
+station_avg_temp_c                       float64
+station_diur_temp_rng_c                  float64
+station_max_temp_c                       float64
+station_min_temp_c                       float64
+station_precip_mm                        float64
+dtype: object
+[2018-10-21 19:14:44.443381548] Initializing
+[2018-10-21 19:15:16.073862314] Initial score: 36.77410968795884
+[2018-10-21 19:15:16.074096203] Iteration 1
+[2018-10-21 19:26:10.407298326] Best eliminated feature on stage 1 is ndvi_sw with score 33.468654516483106
+[2018-10-21 19:26:10.407687664] Iteration 2
+[2018-10-21 19:36:10.919510126] Best eliminated feature on stage 2 is reanalysis_specific_humidity_g_per_kg with score 31.65183084359798
+[2018-10-21 19:36:10.919931650] Iteration 3
+[2018-10-21 19:45:13.852480412] Best eliminated feature on stage 3 is reanalysis_max_air_temp_k with score 30.854725031169533
+[2018-10-21 19:45:13.852848530] Iteration 4
+[2018-10-21 19:53:57.911335230] Best eliminated feature on stage 4 is reanalysis_tdtr_k with score 30.062869041145895
+[2018-10-21 19:53:57.911651373] Iteration 5
+[2018-10-21 20:02:03.254529952] Best eliminated feature on stage 5 is station_max_temp_c with score 29.405954311154776
+[2018-10-21 20:02:03.255034207] Iteration 6
+[2018-10-21 20:09:10.469462633] Best eliminated feature on stage 6 is ndvi_nw with score 28.80924005396286
+[2018-10-21 20:09:10.469854832] Iteration 7
+[2018-10-21 20:16:05.781950951] No improvement on stage 7, stopping
+[2018-10-21 20:16:05.783101082] Final features:
+ndvi_ne                                 float64
+ndvi_se                                 float64
+precipitation_amt_mm                    float64
+reanalysis_air_temp_k                   float64
+reanalysis_avg_temp_k                   float64
+reanalysis_dew_point_temp_k             float64
+reanalysis_min_air_temp_k               float64
+reanalysis_precip_amt_kg_per_m2         float64
+reanalysis_relative_humidity_percent    float64
+reanalysis_sat_precip_amt_mm            float64
+station_avg_temp_c                      float64
+station_diur_temp_rng_c                 float64
+station_min_temp_c                      float64
+station_precip_mm                       float64
+dtype: object
+[2018-10-21 20:16:05.783303022] Final error: 28.80924005396286

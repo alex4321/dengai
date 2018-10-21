@@ -11,7 +11,8 @@ def read_data(directory):
     train_features['week_start_date'] = pd.to_datetime(train_features['week_start_date'])
     test = pd.read_csv(test_features_path)
     test['week_start_date'] = pd.to_datetime(test['week_start_date'])
-    train = train_features.merge(train_labels_path,
+    train_labels = pd.read_csv(train_labels_path)
+    train = train_features.merge(train_labels,
                                  left_on=['city', 'year', 'weekofyear'],
                                  right_on=['city', 'year', 'weekofyear'])
     submission = pd.read_csv(submission_path)
