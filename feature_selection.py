@@ -66,7 +66,7 @@ def ysqrt(df):
 
 def ysqrt_rev(df):
     if 'y' in list(df.columns):
-        df['y'] = (df['y'] ** 2) * df['y'].apply(np.sign)
+        df['y'] = ((df['y'] ** 2) * df['y'].apply(np.sign)).apply(lambda value: max(0, value))
     return df
 
 
