@@ -27,21 +27,17 @@ def ysqrt_rev(df):
 
 def choose_features(df):
     columns = ['ndvi_ne',
-               'ndvi_se',
-               'precipitation_amt_mm',
                'reanalysis_air_temp_k',
                'reanalysis_avg_temp_k',
                'reanalysis_dew_point_temp_k',
-               'reanalysis_min_air_temp_k',
                'reanalysis_precip_amt_kg_per_m2',
                'reanalysis_relative_humidity_percent',
-               'reanalysis_sat_precip_amt_mm',
                'station_avg_temp_c',
                'station_diur_temp_rng_c',
-               'station_min_temp_c',
-               'station_precip_mm',
-               'ds',
-               'city' # Special case to split final predictions
+               'ds', # Special case to split final predictions
+               'city',
+               'year',
+               'weekofyear'
                ]
     if 'y' in list(df.columns):
         columns.append('y')
