@@ -1,0 +1,41 @@
+[2018-10-21 20:50:17.187011957] Reading data
+[2018-10-21 20:50:17.212935925] Preprocessing
+[2018-10-21 20:50:17.241120100] Determine features
+[2018-10-21 20:50:17.242815018] Initial features: 
+ndvi_ne                                 float64
+ndvi_se                                 float64
+precipitation_amt_mm                    float64
+reanalysis_air_temp_k                   float64
+reanalysis_avg_temp_k                   float64
+reanalysis_dew_point_temp_k             float64
+reanalysis_min_air_temp_k               float64
+reanalysis_precip_amt_kg_per_m2         float64
+reanalysis_relative_humidity_percent    float64
+reanalysis_sat_precip_amt_mm            float64
+station_avg_temp_c                      float64
+station_diur_temp_rng_c                 float64
+station_min_temp_c                      float64
+station_precip_mm                       float64
+dtype: object
+[2018-10-21 20:50:17.243020773] Initializing
+[2018-10-21 20:50:45.557729721] Initial score: 19.028164534213428
+[2018-10-21 20:50:45.558018446] Iteration 1
+[2018-10-21 20:57:15.150096416] Best eliminated feature on stage 1 is precipitation_amt_mm with score 19.009142941971348
+[2018-10-21 20:57:15.150533199] Iteration 2
+[2018-10-21 21:03:03.094963551] No improvement on stage 2, stopping
+[2018-10-21 21:03:03.096324205] Final features:
+ndvi_ne                                 float64
+ndvi_se                                 float64
+reanalysis_air_temp_k                   float64
+reanalysis_avg_temp_k                   float64
+reanalysis_dew_point_temp_k             float64
+reanalysis_min_air_temp_k               float64
+reanalysis_precip_amt_kg_per_m2         float64
+reanalysis_relative_humidity_percent    float64
+reanalysis_sat_precip_amt_mm            float64
+station_avg_temp_c                      float64
+station_diur_temp_rng_c                 float64
+station_min_temp_c                      float64
+station_precip_mm                       float64
+dtype: object
+[2018-10-21 21:03:03.096495867] Final error: 19.009142941971348

@@ -1,5 +1,10 @@
 import os
+import time
 import pandas as pd
+
+
+START_TIME = int(time.time())
+LOG_FILENAME = 'log-{0}'.format(START_TIME)
 
 
 def read_data(directory):
@@ -17,3 +22,19 @@ def read_data(directory):
                                  right_on=['city', 'year', 'weekofyear'])
     submission = pd.read_csv(submission_path)
     return train, test, submission
+
+
+def log(message):
+    message_str = '[{0}] {1}'.format(
+        str(pd.to_datetime(time.time(), unit='s')),
+        message
+    )
+    print(message_str)
+    with open(LOG_FILENAME, 'a') as target:
+        target.write(message_str + '\n')
+
+
+def apply_processors(processors, df):
+    for func in processors:
+        df = func(df)
+    return df
