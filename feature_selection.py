@@ -4,6 +4,7 @@ from fbprophet.diagnostics import cross_validation
 from fbprophet import Prophet
 from tqdm import tqdm
 import features_preprocessing as fp
+from joblib import Parallel, delayed
 
 
 def prophet_validation_error(prophet, postprocessors, *args, **kwargs):
@@ -31,6 +32,13 @@ def create_prophet(features):
     return prophet
 
 
+def _feature_validation(train, features, eliminated_feature, postprocessors, horizon):
+    with utils.suppress_stdout_stderr():
+        new_features = features[features != eliminated_feature]
+        new_prophet = create_prophet(new_features)
+        return prophet_validate(new_prophet, postprocessors, train, horizon=horizon)
+
+
 if __name__ == '__main__':
     preprocessors = [fp.rename_columns_for_prophet,
                      fp.city_encode,
@@ -40,6 +48,7 @@ if __name__ == '__main__':
     postprocessors = [fp.ysqrt_rev]
     max_depth = -1
     horizon = '{0} days'.format(2 * 365)
+    max_proc = 4
 
     utils.log('Reading data')
     train, test, submission = utils.read_data('data')
@@ -61,19 +70,20 @@ if __name__ == '__main__':
     utils.log('Initial features: \n{0}'.format(train.dtypes[features]))
 
     utils.log('Initializing')
-    prophet = create_prophet(features)
-    error = prophet_validate(prophet, postprocessors, train, horizon=horizon)
+    with utils.suppress_stdout_stderr():
+        prophet = create_prophet(features)
+        error = prophet_validate(prophet, postprocessors, train, horizon=horizon)
     utils.log('Initial score: {0}'.format(error))
 
     for i in range(max_depth):
         utils.log('Iteration {0}'.format(i + 1))
         best_error = error
         best_eliminated_feature = None
-        for feature in tqdm(features,
-                            desc='Choosing next feature for elimination'):
-            new_features = features[features != feature]
-            new_prophet = create_prophet(new_features)
-            new_error = prophet_validate(new_prophet, postprocessors, train, horizon=horizon)
+        errors = Parallel(n_jobs=max_proc) (
+            delayed(_feature_validation) (train, features, eliminated_feature, postprocessors, horizon)
+            for eliminated_feature in tqdm(features)
+        )
+        for new_error, feature in zip(errors, features):
             if new_error < best_error:
                 best_error = new_error
                 best_eliminated_feature = feature
