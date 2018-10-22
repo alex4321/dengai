@@ -7,6 +7,7 @@ import pandas as pd
 if __name__ == '__main__':
     preprocessors = [fp.rename_columns_for_prophet,
                      fp.fill_nan,
+                     fp.city_encode,
                      fp.choose_features,
                      fp.ysqrt]
     postprocessors = [fp.ysqrt_rev]

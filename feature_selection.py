@@ -33,6 +33,7 @@ def create_prophet(features):
 
 if __name__ == '__main__':
     preprocessors = [fp.rename_columns_for_prophet,
+                     fp.city_encode,
                      fp.fill_nan,
                      fp.choose_features,
                      fp.ysqrt]

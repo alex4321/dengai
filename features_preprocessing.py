@@ -25,15 +25,30 @@ def ysqrt_rev(df):
     return df
 
 
+def city_encode(df):
+    df['city_sj'] = 1.0 * (df['city'] == 'sj')
+    df['city_iq'] = 1.0 * (df['city'] == 'iq')
+    return df
+
+
 def choose_features(df):
-    columns = ['ndvi_ne',
+    columns = ['ndvi_nw',
+               'ndvi_sw',
                'reanalysis_air_temp_k',
                'reanalysis_avg_temp_k',
                'reanalysis_dew_point_temp_k',
+               'reanalysis_min_air_temp_k',
                'reanalysis_precip_amt_kg_per_m2',
                'reanalysis_relative_humidity_percent',
+               'reanalysis_sat_precip_amt_mm',
                'station_avg_temp_c',
                'station_diur_temp_rng_c',
+               'station_max_temp_c',
+               'station_min_temp_c',
+               'station_precip_mm',
+               'city_sj',
+               'city_iq',
+
                'ds', # Special case to split final predictions
                'city',
                'year',
@@ -42,3 +57,4 @@ def choose_features(df):
     if 'y' in list(df.columns):
         columns.append('y')
     return df[columns]
+    #return df
