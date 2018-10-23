@@ -49,15 +49,6 @@ def choose_features(df):
                'city_sj',
                'city_iq',
 
-               'ndvi_se_2',
-               'ndvi_sw_2',
-               'ndvi_ne_2',
-               'ndvi_nw_2',
-               'ndvi_se_0_5',
-               'ndvi_sw_0_5',
-               'ndvi_ne_0_5',
-               'ndvi_nw_0_5',
-
                'ds', # Special case to split final predictions
                'city',
                'year',
