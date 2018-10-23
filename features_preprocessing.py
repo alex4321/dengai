@@ -31,6 +31,14 @@ def city_encode(df):
     return df
 
 
+def ndvi_pows(df):
+    columns = ['ndvi_se', 'ndvi_sw', 'ndvi_ne', 'ndvi_nw']
+    for column in columns:
+        df['{0}_2'.format(column)] = df[column] ** 2
+        df['{0}_0_5'.format(column)] = df[column] ** 0.5
+    return df
+
+
 def choose_features(df):
     columns = ['ndvi_nw',
                'ndvi_sw',
@@ -48,6 +56,15 @@ def choose_features(df):
                'station_precip_mm',
                'city_sj',
                'city_iq',
+
+               'ndvi_se_2',
+               'ndvi_sw_2',
+               'ndvi_ne_2',
+               'ndvi_nw_2',
+               'ndvi_se_0_5',
+               'ndvi_sw_0_5',
+               'ndvi_ne_0_5',
+               'ndvi_nw_0_5',
 
                'ds', # Special case to split final predictions
                'city',

@@ -42,6 +42,7 @@ def _feature_validation(train, features, eliminated_feature, postprocessors, hor
 if __name__ == '__main__':
     preprocessors = [fp.rename_columns_for_prophet,
                      fp.city_encode,
+                     fp.ndvi_pows,
                      fp.fill_nan,
                      fp.choose_features,
                      fp.ysqrt]
