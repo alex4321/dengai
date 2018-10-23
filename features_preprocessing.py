@@ -31,14 +31,6 @@ def city_encode(df):
     return df
 
 
-def ndvi_pows(df):
-    columns = ['ndvi_se', 'ndvi_sw', 'ndvi_ne', 'ndvi_nw']
-    for column in columns:
-        df['{0}_2'.format(column)] = df[column] ** 2
-        df['{0}_0_5'.format(column)] = df[column] ** 0.5
-    return df
-
-
 def choose_features(df):
     columns = ['ndvi_nw',
                'ndvi_sw',
